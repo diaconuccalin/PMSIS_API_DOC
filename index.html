@@ -1,0 +1,154 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PMSIS API documentation &mdash; PMSIS  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="RTOS" href="rtos.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            PMSIS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rtos.html">RTOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drivers.html">Drivers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="chips.html">Chips</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">PMSIS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">PMSIS API documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pmsis-api-documentation">
+<h1>PMSIS API documentation<a class="headerlink" href="#pmsis-api-documentation" title="Link to this heading"></a></h1>
+</section>
+<section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Link to this heading"></a></h1>
+<p>The PMSIS API is a set of low-level drivers which any operating system can implement to provide a common layer to upper layers. Together with the PMSIS BSP, it provides a full stack of drivers, allowing the development of applications portable across a wide range of operating systems.</p>
+</section>
+<section id="conventions">
+<h1>Conventions<a class="headerlink" href="#conventions" title="Link to this heading"></a></h1>
+<p>All functions prefixed by <cite>pi_</cite> can only be called from fabric-controller side while the ones prefixed by <cite>pi_cl_</cite> can only be called from cluster side. Any exception to these rules is documented where it applies.</p>
+<p>All functions on fabric-controller side are by default synchronous and are blocking the caller until the operation is done. All the functions suffixed by <cite>_async</cite> are asynchronous and are not blocking the caller. The termination of such operations is managed with a <cite>pi_task_t</cite> object, see PMSIS API documentation for more information.</p>
+<p>Functions on cluster-side are by default synchronous but can also be asynchronous if the documentation of the function mentions it.</p>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rtos.html">RTOS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rtos.html#task">Task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rtos.html#memory-allocation">Memory allocation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="drivers.html">Drivers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="drivers.html#cluster">Cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drivers.html#uart">UART</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drivers.html#spi">SPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drivers.html#hyperbus">Hyperbus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drivers.html#cpi">CPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drivers.html#gpio">GPIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drivers.html#i2c">I2C</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drivers.html#i2s">I2S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drivers.html#padframe">Padframe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drivers.html#performance-counters">Performance counters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chips.html">Chips</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chips.html#gap8">GAP8</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rtos.html" class="btn btn-neutral float-right" title="RTOS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019, GreenWaves Technologies.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

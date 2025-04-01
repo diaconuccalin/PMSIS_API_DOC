@@ -1,0 +1,258 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chips &mdash; PMSIS  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Drivers" href="drivers.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PMSIS
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="rtos.html">RTOS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drivers.html">Drivers</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Chips</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#gap8">GAP8</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#information">Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#performance-counters">Performance counters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv415pi_perf_event_e"><code class="docutils literal notranslate"><span class="pre">pi_perf_event_e</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PMSIS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Chips</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/chips.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="chips">
+<h1>Chips<a class="headerlink" href="#chips" title="Link to this heading"></a></h1>
+<section id="gap8">
+<h2>GAP8<a class="headerlink" href="#gap8" title="Link to this heading"></a></h2>
+<section id="information">
+<h3>Information<a class="headerlink" href="#information" title="Link to this heading"></a></h3>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__GAP8__INFO"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">GAP8</span> <span class="pre">information</span></span></dt>
+<dd><p>The closest memory for the FC is the FC TCDM and is referred in the API as the FC L1 memory.</p>
+<p>All functions transfering data between an external device and a chip memory must use the L2 memory for the chip memory.</p>
+<p>The cluster controller is core 0 of the cluster. Core 1 to 7 are the slave cores.</p>
+<p>Up to 8 cluster DMA counters can be allocated at the same time. Trying to allocate one more will stall the core.</p>
+<p>With the I2S driver, When using 2 RX channels on the same interface (left and right), the buffer contains the samples for both channels interleaved one by one.</p>
+<p>I2S buffers size must be a most 64KB - 4.</p>
+<p>PI_SPI_WORDSIZE_16 is not supported. </p>
+</dd></dl>
+
+</section>
+<section id="performance-counters">
+<h3>Performance counters<a class="headerlink" href="#performance-counters" title="Link to this heading"></a></h3>
+<dl>
+<dt class="sig sig-object cpp">
+<span class="target" id="group__GAP8__PERF"></span><em><span class="pre">group</span></em> <span class="sig-name descname"><span class="pre">GAP8</span> <span class="pre">performance</span> <span class="pre">counters</span></span></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv415pi_perf_event_e">
+<span id="_CPPv315pi_perf_event_e"></span><span id="_CPPv215pi_perf_event_e"></span><span class="target" id="group__GAP8__PERF_1ga2d96982882022e97e04d8a065a756ed2"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pi_perf_event_e</span></span></span><a class="headerlink" href="#_CPPv415pi_perf_event_e" title="Link to this definition"></a><br /></dt>
+<dd><p>Performance event identifiers. </p>
+<p>This can be used to describe which performance event to monitor (cycles, cache miss, etc). </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15pi_perf_event_e14PI_PERF_CYCLESE">
+<span id="_CPPv3N15pi_perf_event_e14PI_PERF_CYCLESE"></span><span id="_CPPv2N15pi_perf_event_e14PI_PERF_CYCLESE"></span><span class="target" id="group__GAP8__PERF_1gga2d96982882022e97e04d8a065a756ed2a639c760c67a9726233c1321d7ae3234a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PI_PERF_CYCLES</span></span></span><a class="headerlink" href="#_CPPv4N15pi_perf_event_e14PI_PERF_CYCLESE" title="Link to this definition"></a><br /></dt>
+<dd><p>Total number of cycles (also includes the cycles where the core is sleeping). Be careful that this event is using a timer shared within the cluster, so resetting, starting or stopping it on one core will impact other cores of the same cluster. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15pi_perf_event_e21PI_PERF_ACTIVE_CYCLESE">
+<span id="_CPPv3N15pi_perf_event_e21PI_PERF_ACTIVE_CYCLESE"></span><span id="_CPPv2N15pi_perf_event_e21PI_PERF_ACTIVE_CYCLESE"></span><span class="target" id="group__GAP8__PERF_1gga2d96982882022e97e04d8a065a756ed2a31165313d83610afae4e1b68ac8fc52f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PI_PERF_ACTIVE_CYCLES</span></span></span><a class="headerlink" href="#_CPPv4N15pi_perf_event_e21PI_PERF_ACTIVE_CYCLESE" title="Link to this definition"></a><br /></dt>
+<dd><p>Counts the number of cycles the core was active (not sleeping). </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15pi_perf_event_e13PI_PERF_INSTRE">
+<span id="_CPPv3N15pi_perf_event_e13PI_PERF_INSTRE"></span><span id="_CPPv2N15pi_perf_event_e13PI_PERF_INSTRE"></span><span class="target" id="group__GAP8__PERF_1gga2d96982882022e97e04d8a065a756ed2a7e4d7a7c082514319de7d0a1ab51f8ef"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PI_PERF_INSTR</span></span></span><a class="headerlink" href="#_CPPv4N15pi_perf_event_e13PI_PERF_INSTRE" title="Link to this definition"></a><br /></dt>
+<dd><p>Counts the number of instructions executed. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15pi_perf_event_e16PI_PERF_LD_STALLE">
+<span id="_CPPv3N15pi_perf_event_e16PI_PERF_LD_STALLE"></span><span id="_CPPv2N15pi_perf_event_e16PI_PERF_LD_STALLE"></span><span class="target" id="group__GAP8__PERF_1gga2d96982882022e97e04d8a065a756ed2a7f20cbff41d7eb0cd21d15d953decf5d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PI_PERF_LD_STALL</span></span></span><a class="headerlink" href="#_CPPv4N15pi_perf_event_e16PI_PERF_LD_STALLE" title="Link to this definition"></a><br /></dt>
+<dd><p>Number of load data hazards. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15pi_perf_event_e16PI_PERF_JR_STALLE">
+<span id="_CPPv3N15pi_perf_event_e16PI_PERF_JR_STALLE"></span><span id="_CPPv2N15pi_perf_event_e16PI_PERF_JR_STALLE"></span><span class="target" id="group__GAP8__PERF_1gga2d96982882022e97e04d8a065a756ed2acc1a55b1b481996193a4d31427e4636b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PI_PERF_JR_STALL</span></span></span><a class="headerlink" href="#_CPPv4N15pi_perf_event_e16PI_PERF_JR_STALLE" title="Link to this definition"></a><br /></dt>
+<dd><p>Number of jump register data hazards. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15pi_perf_event_e13PI_PERF_IMISSE">
+<span id="_CPPv3N15pi_perf_event_e13PI_PERF_IMISSE"></span><span id="_CPPv2N15pi_perf_event_e13PI_PERF_IMISSE"></span><span class="target" id="group__GAP8__PERF_1gga2d96982882022e97e04d8a065a756ed2aafbba232237f87f5a049569cf688db0b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PI_PERF_IMISS</span></span></span><a class="headerlink" href="#_CPPv4N15pi_perf_event_e13PI_PERF_IMISSE" title="Link to this definition"></a><br /></dt>
+<dd><p>Cycles waiting for instruction fetches, i.e. number of instructions wasted due to non-ideal caching. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15pi_perf_event_e10PI_PERF_LDE">
+<span id="_CPPv3N15pi_perf_event_e10PI_PERF_LDE"></span><span id="_CPPv2N15pi_perf_event_e10PI_PERF_LDE"></span><span class="target" id="group__GAP8__PERF_1gga2d96982882022e97e04d8a065a756ed2a61cc8e756f9ec7218e242dba79995405"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PI_PERF_LD</span></span></span><a class="headerlink" href="#_CPPv4N15pi_perf_event_e10PI_PERF_LDE" title="Link to this definition"></a><br /></dt>
+<dd><p>Number of data memory loads executed. Misaligned accesses are counted twice. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15pi_perf_event_e10PI_PERF_STE">
+<span id="_CPPv3N15pi_perf_event_e10PI_PERF_STE"></span><span id="_CPPv2N15pi_perf_event_e10PI_PERF_STE"></span><span class="target" id="group__GAP8__PERF_1gga2d96982882022e97e04d8a065a756ed2a7f617611bef1e60c36ce8feb5672cf37"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PI_PERF_ST</span></span></span><a class="headerlink" href="#_CPPv4N15pi_perf_event_e10PI_PERF_STE" title="Link to this definition"></a><br /></dt>
+<dd><p>Number of data memory stores executed. Misaligned accesses are counted twice. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15pi_perf_event_e12PI_PERF_JUMPE">
+<span id="_CPPv3N15pi_perf_event_e12PI_PERF_JUMPE"></span><span id="_CPPv2N15pi_perf_event_e12PI_PERF_JUMPE"></span><span class="target" id="group__GAP8__PERF_1gga2d96982882022e97e04d8a065a756ed2a2f547ac14470edd44ed78deeebd01695"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PI_PERF_JUMP</span></span></span><a class="headerlink" href="#_CPPv4N15pi_perf_event_e12PI_PERF_JUMPE" title="Link to this definition"></a><br /></dt>
+<dd><p>Number of unconditional jumps (j, jal, jr, jalr). </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15pi_perf_event_e14PI_PERF_BRANCHE">
+<span id="_CPPv3N15pi_perf_event_e14PI_PERF_BRANCHE"></span><span id="_CPPv2N15pi_perf_event_e14PI_PERF_BRANCHE"></span><span class="target" id="group__GAP8__PERF_1gga2d96982882022e97e04d8a065a756ed2ade8074f2e06089dac3c146efde555487"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PI_PERF_BRANCH</span></span></span><a class="headerlink" href="#_CPPv4N15pi_perf_event_e14PI_PERF_BRANCHE" title="Link to this definition"></a><br /></dt>
+<dd><p>Number of branches. Counts both taken and not taken branches. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15pi_perf_event_e14PI_PERF_BTAKENE">
+<span id="_CPPv3N15pi_perf_event_e14PI_PERF_BTAKENE"></span><span id="_CPPv2N15pi_perf_event_e14PI_PERF_BTAKENE"></span><span class="target" id="group__GAP8__PERF_1gga2d96982882022e97e04d8a065a756ed2a1d8c903b8cffe8814c272a57660728b3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PI_PERF_BTAKEN</span></span></span><a class="headerlink" href="#_CPPv4N15pi_perf_event_e14PI_PERF_BTAKENE" title="Link to this definition"></a><br /></dt>
+<dd><p>Number of taken branches. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15pi_perf_event_e11PI_PERF_RVCE">
+<span id="_CPPv3N15pi_perf_event_e11PI_PERF_RVCE"></span><span id="_CPPv2N15pi_perf_event_e11PI_PERF_RVCE"></span><span class="target" id="group__GAP8__PERF_1gga2d96982882022e97e04d8a065a756ed2a0171f339f518d37e2c9bac9ef585fb7f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PI_PERF_RVC</span></span></span><a class="headerlink" href="#_CPPv4N15pi_perf_event_e11PI_PERF_RVCE" title="Link to this definition"></a><br /></dt>
+<dd><p>Number of compressed instructions executed. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15pi_perf_event_e14PI_PERF_LD_EXTE">
+<span id="_CPPv3N15pi_perf_event_e14PI_PERF_LD_EXTE"></span><span id="_CPPv2N15pi_perf_event_e14PI_PERF_LD_EXTE"></span><span class="target" id="group__GAP8__PERF_1gga2d96982882022e97e04d8a065a756ed2a57fa04007795f2f8e88c26355e084193"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PI_PERF_LD_EXT</span></span></span><a class="headerlink" href="#_CPPv4N15pi_perf_event_e14PI_PERF_LD_EXTE" title="Link to this definition"></a><br /></dt>
+<dd><p>Number of memory loads to EXT executed. Misaligned accesses are counted twice. Every non-TCDM access is considered external (cluster only). </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15pi_perf_event_e14PI_PERF_ST_EXTE">
+<span id="_CPPv3N15pi_perf_event_e14PI_PERF_ST_EXTE"></span><span id="_CPPv2N15pi_perf_event_e14PI_PERF_ST_EXTE"></span><span class="target" id="group__GAP8__PERF_1gga2d96982882022e97e04d8a065a756ed2ad2f3bb39edbc9eaea90b0be006ee47be"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PI_PERF_ST_EXT</span></span></span><a class="headerlink" href="#_CPPv4N15pi_perf_event_e14PI_PERF_ST_EXTE" title="Link to this definition"></a><br /></dt>
+<dd><p>Number of memory stores to EXT executed. Misaligned accesses are counted twice. Every non-TCDM access is considered external (cluster only). </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15pi_perf_event_e18PI_PERF_LD_EXT_CYCE">
+<span id="_CPPv3N15pi_perf_event_e18PI_PERF_LD_EXT_CYCE"></span><span id="_CPPv2N15pi_perf_event_e18PI_PERF_LD_EXT_CYCE"></span><span class="target" id="group__GAP8__PERF_1gga2d96982882022e97e04d8a065a756ed2a35d3b8bed6465b7105649ce8551169db"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PI_PERF_LD_EXT_CYC</span></span></span><a class="headerlink" href="#_CPPv4N15pi_perf_event_e18PI_PERF_LD_EXT_CYCE" title="Link to this definition"></a><br /></dt>
+<dd><p>Cycles used for memory loads to EXT. Every non-TCDM access is considered external (cluster only). </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15pi_perf_event_e18PI_PERF_ST_EXT_CYCE">
+<span id="_CPPv3N15pi_perf_event_e18PI_PERF_ST_EXT_CYCE"></span><span id="_CPPv2N15pi_perf_event_e18PI_PERF_ST_EXT_CYCE"></span><span class="target" id="group__GAP8__PERF_1gga2d96982882022e97e04d8a065a756ed2a5c7dc90e0c2afbacf9dafa7fe7a12e61"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PI_PERF_ST_EXT_CYC</span></span></span><a class="headerlink" href="#_CPPv4N15pi_perf_event_e18PI_PERF_ST_EXT_CYCE" title="Link to this definition"></a><br /></dt>
+<dd><p>Cycles used for memory stores to EXT. Every non-TCDM access is considered external (cluster only). </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N15pi_perf_event_e17PI_PERF_TCDM_CONTE">
+<span id="_CPPv3N15pi_perf_event_e17PI_PERF_TCDM_CONTE"></span><span id="_CPPv2N15pi_perf_event_e17PI_PERF_TCDM_CONTE"></span><span class="target" id="group__GAP8__PERF_1gga2d96982882022e97e04d8a065a756ed2a4d8be8b4f259a451121cda41f8ac1ac4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PI_PERF_TCDM_CONT</span></span></span><a class="headerlink" href="#_CPPv4N15pi_perf_event_e17PI_PERF_TCDM_CONTE" title="Link to this definition"></a><br /></dt>
+<dd><p>Cycles wasted due to TCDM/log-interconnect contention (cluster only). </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="drivers.html" class="btn btn-neutral float-left" title="Drivers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2019, GreenWaves Technologies.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
